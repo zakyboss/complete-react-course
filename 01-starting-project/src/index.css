@@ -148,3 +148,12 @@ main h2 {
 #tab-content code {
   font-size: 1rem;
 }
+
+.goalContainer {
+  display: flex;
+  margin-left: 100px;
+  align-items: center;
+}
+.reactLogo {
+  height: 200px;
+}
