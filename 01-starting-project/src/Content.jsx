@@ -1,4 +1,5 @@
-export default function Content ({title,description,image}){
+export default function Content ({conceptObj}){
+    const {title,description,image} = conceptObj;
     return (
 <div>
     <li>

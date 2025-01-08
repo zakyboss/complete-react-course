@@ -1,11 +1,34 @@
-// import MainGoal from "./MainGoal";
-// import Header from "./Header";
-import  Content from "./Content"
-import coreConcepts from './assets/react-core-concepts.png';
-import component from './assets/components.png';
-import state from './assets/state-mgmt.png';
-import config from './assets/config.png';
-import jsx from './assets/jsx-ui.png'
+import componentsImg from './assets/components.png';
+import propsImg from './assets/config.png';
+import jsxImg from './assets/jsx-ui.png';
+import stateImg from './assets/state-mgmt.png';
+import Content from './Content'
+export const CORE_CONCEPTS = [
+  {
+    image: componentsImg,
+    title: 'Components',
+    description:
+      'The core UI building block - compose the user interface by combining multiple components.',
+  },
+  {
+    image: jsxImg,
+    title: 'JSX',
+    description:
+      'Return (potentially dynamic) HTML(ish) code to define the actual markup that will be rendered.',
+  },
+  {
+    image: propsImg,
+    title: 'Props',
+    description:
+      'Make components configurable (and therefore reusable) by passing input data to them.',
+  },
+  {
+    image: stateImg,
+    title: 'State',
+    description:
+      'React-managed data which, when changed, causes the component to re-render & the UI to update.',
+  },
+];
 
 function App() {
   return (
@@ -14,10 +37,11 @@ function App() {
 
       <main id = 'core-concepts' style={{display:'flex'}}>
         <ul>
-<Content title ='Components' description = 'They are Crucial Building blocks in React , they fit into each other like Legos' image ={coreConcepts}/>
-<Content title ='JSX' description = 'They are a mixture of HTML CSS and JS which are returned by components ' image ={jsx}/>
-<Content title ='State' description = 'States are current condition of an element, they can be varied and changing' image ={state}/>
-<Content title ='Props' description = 'Props allow as to pass dynamic data to each individual element with dynamic Data' image ={config}/>
+  {
+    CORE_CONCEPTS.map(concept=> {
+      return <Content  conceptObj = {concept}/>
+    })
+  }
 </ul>
       </main>
     </div>
