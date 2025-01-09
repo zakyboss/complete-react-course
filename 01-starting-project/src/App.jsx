@@ -25,10 +25,10 @@ function App() {
 <section id='examples'>
         <h1>Examples</h1>
         <menu>
-        <TabButton onSelect={handleSelect}>Components</TabButton>
-        <TabButton  onSelect={handleSelect} >JSX</TabButton>
-        <TabButton  onSelect={handleSelect}>Props</TabButton>
-        <TabButton  onSelect={handleSelect}>State</TabButton>
+        <TabButton onClick={handleSelect}>Components</TabButton>
+        <TabButton  onClick={handleSelect} >JSX</TabButton>
+        <TabButton  onClick={handleSelect}>Props</TabButton>
+        <TabButton  onClick={handleSelect}>State</TabButton>
 
         </menu>
       </section>
