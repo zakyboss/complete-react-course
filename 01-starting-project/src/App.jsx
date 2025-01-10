@@ -2,15 +2,11 @@ import { useState } from 'react';
 import Content from './CoreConcept'
 import { CORE_CONCEPTS } from './data';
 import TabButton from './TabButton';
+import { EXAMPLES } from './data';
 function App() {
   const [content , setContent]= useState('')
   function handleSelect(selectedButton){
-    if(selectedButton=='components'){
-      setContent(selectedButton)
-    }else {
-      setContent(selectedButton)
-
-    }
+    setContent(selectedButton)
   };
   return (
     <div>
@@ -32,19 +28,27 @@ function App() {
 <section id='examples'>
         <h1>Examples</h1>
         <menu>
-        <TabButton onClick={()=> handleSelect('Components')}>Components</TabButton>
-        <TabButton  onClick={()=> handleSelect('JSX')} >JSX</TabButton>
-        <TabButton  onClick={()=> handleSelect('Props')}>Props</TabButton>
-        <TabButton  onClick={()=> handleSelect('State')}>State</TabButton>
+        <TabButton onClick={()=> handleSelect('components')}>Components</TabButton>
+        <TabButton  onClick={()=> handleSelect('jsx')} >JSX</TabButton>
+        <TabButton  onClick={()=> handleSelect('props')}>props</TabButton>
+        <TabButton  onClick={()=> handleSelect('state')}>state</TabButton>
 
         </menu>
       </section>
-       <section>
-        <ul>
-        
-          
-        </ul>
-       </section>
+      {
+        content? <section id='tab-content'>
+        <h3>{EXAMPLES[content].title}</h3>
+        <p>
+        {EXAMPLES[content].description}
+        </p>
+        <pre>
+          <code>
+          {EXAMPLES[content].code}
+          </code>
+        </pre>
+       </section>: <p>Please Select a Topic</p>
+      }
+      
       </main>
   
     </div>
