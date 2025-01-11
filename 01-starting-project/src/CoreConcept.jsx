@@ -1,4 +1,4 @@
-export default function Content ({conceptObj}){
+export default function CoreConcept ({conceptObj}){
     const {title,description,image} = conceptObj;
     return (
 <>
