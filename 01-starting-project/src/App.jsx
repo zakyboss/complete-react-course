@@ -9,29 +9,29 @@ function App() {
     setContent(selectedButton)
   };
   return (
-    <div>
+    <>
             <h3 style={{marginLeft:'40%'}}>Core Concepts</h3>
 
       <main >
         <section id = 'core-concepts' style={{display:'flex'}}>
-
-       
-        <ul>
-  {
+ {
     CORE_CONCEPTS.map(concept=> {
-      return <Content  conceptObj = {concept}/>
+      return <Content ley={concept.title} conceptObj = {concept}/>
     })
   }
+       
+        <ul>
+ 
 </ul>
 </section>
 
 <section id='examples'>
         <h1>Examples</h1>
         <menu>
-        <TabButton onClick={()=> handleSelect('components')}>Components</TabButton>
-        <TabButton  onClick={()=> handleSelect('jsx')} >JSX</TabButton>
-        <TabButton  onClick={()=> handleSelect('props')}>props</TabButton>
-        <TabButton  onClick={()=> handleSelect('state')}>state</TabButton>
+        <TabButton isSelected={content==='components'} onClick={()=> handleSelect('components')}>Components</TabButton>
+        <TabButton  isSelected={content==='jsx'} onClick={()=> handleSelect('jsx')} >JSX</TabButton>
+        <TabButton  isSelected={content==='props'} onClick={()=> handleSelect('props')}>props</TabButton>
+        <TabButton  isSelected={content==='state'} onClick={()=> handleSelect('state')}>state</TabButton>
 
         </menu>
       </section>
@@ -51,7 +51,7 @@ function App() {
       
       </main>
   
-    </div>
+    </>
   );
 }
 
