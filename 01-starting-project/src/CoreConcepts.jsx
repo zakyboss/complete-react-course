@@ -10,7 +10,7 @@ export default function CoreConcepts(){
                  <section id = 'core-concepts' style={{display:'flex'}}>
           {
              CORE_CONCEPTS.map(concept=> {
-               return <CoreConcept ley={concept.title} conceptObj = {concept}/>
+               return <CoreConcept key={concept.title} conceptObj = {concept}/>
              })
            }
             
