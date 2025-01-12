@@ -1,4 +1,5 @@
 
+import Section from "./Section";
 import TabButton from "./TabButton";
 import { useState } from "react";
 import { EXAMPLES } from "./data";
@@ -7,9 +8,20 @@ export default function Examples(){
     function handleSelect(selectedButton){
       setContent(selectedButton)
     };
+    let tabContent = (<section id='tab-content'>
+    <h3>{EXAMPLES[content].title}</h3>
+    <p>
+    {EXAMPLES[content].description}
+    </p>
+    <pre>
+      <code>
+      {EXAMPLES[content].code}
+      </code>
+    </pre>
+   </section> )
     return (
         <>
-  <section id='examples'>
+  <Section  title='Examples' id='examples'>
           <h1>Examples</h1>
           <menu>
           <TabButton isSelected={content==='components'} onClick={()=> handleSelect('components')}>Components</TabButton>
@@ -18,19 +30,10 @@ export default function Examples(){
           <TabButton  isSelected={content==='state'} onClick={()=> handleSelect('state')}>state</TabButton>
   
           </menu>
-        </section>
+        </Section>
         {
-          content? <section id='tab-content'>
-          <h3>{EXAMPLES[content].title}</h3>
-          <p>
-          {EXAMPLES[content].description}
-          </p>
-          <pre>
-            <code>
-            {EXAMPLES[content].code}
-            </code>
-          </pre>
-         </section>: <p>Please Select a Topic</p>
+        
+          content? tabContent: <p>Please Select a Topic</p>
         }
     
       </>
