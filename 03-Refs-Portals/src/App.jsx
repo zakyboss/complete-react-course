@@ -1,9 +1,10 @@
-import Player from './components/Player.jsx';
-
+import { useState } from "react";
+import Player from "./components/Player";
 function App() {
+  // const [myName , setMyName] = useState("")
   return (
     <>
-      <Player />
+      <Player/>
       <div id="challenges"></div>
     </>
   );
