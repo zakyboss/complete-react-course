@@ -1,17 +1,17 @@
-import React, { useState } from "react";
+import React, { useState,useRef } from "react";
 
 export default function TimerChallenge({ title, targetTime }) {
   const [timerExpired, setTimerExpired] = useState(false);
   const [timerStarted, setTimerStarted] = useState(false);
-  let timer;
+  let timer = useRef();
   function handleStart() {
     setTimerStarted(true);
-    timer = setTimeout(() => {
+    timer.current = setTimeout(() => {
       setTimerExpired(true);
     }, targetTime * 1000);
   }
   function handleStop() {
-    clearTimeout(timer);
+    clearTimeout(timer.current);
   }
 
   return (
