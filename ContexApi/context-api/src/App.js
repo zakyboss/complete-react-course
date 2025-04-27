@@ -5,12 +5,12 @@ import Shop from "./components/Shop";
 import { DUMMY_PRODUCTS } from "./dummy-products";
 function App() {
   const [shoppingCart, setShoppingCart] = useState({
-    items: [],
+   item: [],
   });
 
   function handleAddItemToCart(id) {
     setShoppingCart((prevShoppingCart) => {
-      const updatedItems = [...prevShoppingCart.items];
+      const updatedItems = [...prevShoppingCart.item];
 
       const existingCartItemIndex = updatedItems.findIndex(
         (cartItem) => cartItem.id === id
@@ -34,14 +34,14 @@ function App() {
       }
 
       return {
-        items: updatedItems,
+       item: updatedItems,
       };
     });
   }
 
   function handleUpdateCartItemQuantity(productId, amount) {
     setShoppingCart((prevShoppingCart) => {
-      const updatedItems = [...prevShoppingCart.items];
+      const updatedItems = [...prevShoppingCart.item];
       const updatedItemIndex = updatedItems.findIndex(
         (item) => item.id === productId
       );
@@ -59,21 +59,24 @@ function App() {
       }
 
       return {
-        items: updatedItems,
+       item: updatedItems,
       };
     });
   }
+const ctxValue ={
+  item:shoppingCart.item,
+  onAddItemToCart :handleAddItemToCart,
 
+}
   return (
     <>
-    <CartContext.Provider value={{item:[]}}>
+    <CartContext.Provider value={ctxValue}>
 
    
       <Header
-        cart={shoppingCart}
         onUpdateCartItemQuantity={handleUpdateCartItemQuantity}
       />
-      <Shop onAddItemToCart={handleAddItemToCart} />
+      <Shop  />
       </CartContext.Provider>
     </>
   );
